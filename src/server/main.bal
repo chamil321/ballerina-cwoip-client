@@ -17,7 +17,7 @@ service chatAppUpgrader on new http:Listener(9090) {
         map<string> headers = {};
         wsEp = caller->acceptWebSocketUpgrade(headers);
 
-        wsEp.attributes[NAME] = name;
+        //wsEp.attributes[NAME] = name;
         string msg = "Hub: Aloha!\n";
         var err = wsEp->pushText(msg);
         if (err is error) {
@@ -33,26 +33,26 @@ service chatApp = @http:WebSocketServiceConfig {} service {
         string msg;
         msg = getAttributeStr(caller, NAME) + " connected to CWOIP server";
         log:printInfo(msg);
-        connectionsMap[caller.id] = caller;
+        //connectionsMap[caller.id] = caller;
     }
 
     resource function onText(http:WebSocketCaller caller, string text) {
-        broadcast(caller.id, text);
+        //broadcast(caller.id, text);
     }
 
     resource function onClose(http:WebSocketCaller caller, int statusCode,
                                 string reason) {
-        _ = connectionsMap.remove(caller.id);
+        //_ = connectionsMap.remove(caller.id);
         string msg = getAttributeStr(caller, NAME) + " disconnected from CWOIP server";
     }
 };
 
 function broadcast(string callerId, string text) {
-    foreach var (id, con) in connectionsMap {
-        if(id != callerId) {
-            _ = start send(con, text);
-        }
-    }
+    //foreach var (id, con) in connectionsMap {
+    //    if(id != callerId) {
+    //        _ = start send(con, text);
+    //    }
+    //}
 }
 
 function send(http:WebSocketCaller con, string text) {
@@ -63,6 +63,6 @@ function send(http:WebSocketCaller con, string text) {
 }
 
 function getAttributeStr(http:WebSocketCaller ep, string key) returns (string) {
-    var name = <string>ep.attributes[key];
-    return name;
+    //var name = <string>ep.attributes[key];
+    return "";
 }

@@ -12,9 +12,9 @@ public type SerialPort object {
         return openPort(self.comPort);
     }
 
-    public function closePort() returns boolean {
-        return closePort(self.comPort);
-    }
+    //public function closePort() returns boolean {
+    //    return closePort(self.comPort);
+    //}
 
     public function poll() returns string {
         var value = java:toString(poll(self.comPort));
@@ -41,7 +41,7 @@ public function poll(handle comPort) returns handle = @java:Method {
     name:"poll"
 } external;
 
-public function closePort(handle comPort) returns boolean = @java:Method {
-    class: "com.chamil.serial.SerialPortReader",
-    name:"closePort"
-} external;
+//public function closePort(handle comPort) returns boolean = @java:Method {
+//    class: "com.chamil.serial.SerialPortReader",
+//    name:"closePort"
+//} external;

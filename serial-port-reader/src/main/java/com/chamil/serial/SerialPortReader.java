@@ -37,18 +37,18 @@ public class SerialPortReader {
         return new String(readBuffer);
     }
 
-    public static void closePort(SerialPort comPort) {
-        comPort.closePort();
+    public static boolean closePort(SerialPort comPort) {
+        return comPort.closePort();
     }
 
     public static void main (String [] argv) {
         // Uncomment following to test java port read
-        SerialPort port = getPort("/dev/pts/10");
-        openPort(port);
-        String poll = "";
-        while (!poll.equalsIgnoreCase("\n")) {
-            System.out.println("-" + poll + "-");
-            poll = poll(port);
-        }
+//        SerialPort port = getPort("/dev/pts/10");
+//        openPort(port);
+//        String poll = "";
+//        while (!poll.equalsIgnoreCase("\n")) {
+//            System.out.println("-" + poll + "-");
+//            poll = poll(port);
+//        }
     }
 }

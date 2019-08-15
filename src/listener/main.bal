@@ -24,7 +24,7 @@ public function main() {
         }
 
         // Closing port
-        comPort.closePort();
+        //boolean closed = comPort.closePort();
     }
 }
 
