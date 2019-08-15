@@ -1,0 +1,6 @@
+# ignore Intellij-IDEA files
+*.iml
+.idea/
+
+# Temporary directories
+target/

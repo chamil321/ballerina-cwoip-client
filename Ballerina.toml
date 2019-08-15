@@ -1,0 +1,22 @@
+[project]
+org-name= "chamil"
+version= "0.1.0"
+
+[dependencies]
+
+[platform]
+target = "java"
+
+  [[platform.libraries]]
+  path = "libs/serial-port-reader-1.0.jar"
+  artafactId = "serial-port-reader"
+  version = "1.0"
+  groupId = "com.chamil.serial"
+  module = "listener"
+
+  [[platform.libraries]]
+  path = "libs/jSerialComm-2.5.1.jar"
+  artafactId = "jSerialComm"
+  version = "2.5.1"
+  groupId = "com.chamil.serial"
+  module = "listener"
